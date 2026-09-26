@@ -1,0 +1,95 @@
+{
+  "listBenhNhan": [
+    {
+      "benh_nhan_id": 1,
+      "ho_ten": "Nguyen Van A",
+      "ngay_sinh": "1990-05-10",
+      "gioi_tinh": "Nam",
+      "dia_chi": null,
+      "so_dien_thoai": null,
+      "cccd": "079123456789",
+      "tien_su_noi_khoa": null,
+      "tien_su_ngoai_khoa": null,
+      "thoi_quen": null,
+      "tien_su_gia_dinh": null
+    },
+    {
+      "benh_nhan_id": 2,
+      "ho_ten": "Tran Thi B",
+      "ngay_sinh": "1985-03-15",
+      "gioi_tinh": "Nu",
+      "dia_chi": null,
+      "so_dien_thoai": null,
+      "cccd": "079234567890",
+      "tien_su_noi_khoa": null,
+      "tien_su_ngoai_khoa": null,
+      "thoi_quen": null,
+      "tien_su_gia_dinh": null
+    },
+    {
+      "benh_nhan_id": 3,
+      "ho_ten": "Le Van C",
+      "ngay_sinh": "1978-11-22",
+      "gioi_tinh": "Nam",
+      "dia_chi": null,
+      "so_dien_thoai": null,
+      "cccd": "079345678901",
+      "tien_su_noi_khoa": null,
+      "tien_su_ngoai_khoa": null,
+      "thoi_quen": null,
+      "tien_su_gia_dinh": null
+    },
+    {
+      "benh_nhan_id": 4,
+      "ho_ten": "Pham Thi D",
+      "ngay_sinh": "1995-07-08",
+      "gioi_tinh": "Nu",
+      "dia_chi": null,
+      "so_dien_thoai": null,
+      "cccd": "079456789012",
+      "tien_su_noi_khoa": null,
+      "tien_su_ngoai_khoa": null,
+      "thoi_quen": null,
+      "tien_su_gia_dinh": null
+    },
+    {
+      "benh_nhan_id": 5,
+      "ho_ten": "Hoang Van E",
+      "ngay_sinh": "2000-01-30",
+      "gioi_tinh": "Nam",
+      "dia_chi": null,
+      "so_dien_thoai": null,
+      "cccd": "079567890123",
+      "tien_su_noi_khoa": null,
+      "tien_su_ngoai_khoa": null,
+      "thoi_quen": null,
+      "tien_su_gia_dinh": null
+    },
+    {
+      "benh_nhan_id": 6,
+      "ho_ten": "Vo Thi F",
+      "ngay_sinh": "1992-09-18",
+      "gioi_tinh": "Nu",
+      "dia_chi": null,
+      "so_dien_thoai": null,
+      "cccd": "079678901234",
+      "tien_su_noi_khoa": null,
+      "tien_su_ngoai_khoa": null,
+      "thoi_quen": null,
+      "tien_su_gia_dinh": null
+    },
+    {
+      "benh_nhan_id": 7,
+      "ho_ten": "Dang Van G",
+      "ngay_sinh": "1988-12-05",
+      "gioi_tinh": "Nam",
+      "dia_chi": null,
+      "so_dien_thoai": null,
+      "cccd": "079789012345",
+      "tien_su_noi_khoa": null,
+      "tien_su_ngoai_khoa": null,
+      "thoi_quen": null,
+      "tien_su_gia_dinh": null
+    }
+  ]
+}
