@@ -1,11 +1,16 @@
+import { useState } from 'react';
 import { Table, Tag, Button, Popconfirm, Typography } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useReceptionStore } from '../store/useReceptionStore';
+import CreateVisitModal from './CreateVisitModal';
 
 const { Title } = Typography;
 
 const DailyQueueTab = () => {
   const { queueList, cancelVisit } = useReceptionStore();
+  
+  // 1. State quản lý việc đóng/mở Modal chỉnh sửa và lưu trữ dữ liệu lượt khám đang chọn
+  const [editModalConfig, setEditModalConfig] = useState({ isOpen: false, visitData: null });
 
   const getStatusTag = (status) => {
     switch(status) {
@@ -31,7 +36,15 @@ const DailyQueueTab = () => {
       align: 'right',
       render: (_, record) => (
         <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
-          <Button size="small" icon={<EditOutlined />} disabled={record.trang_thai !== 'moi_tao'}>Sửa</Button>
+          {/* 2. Gắn sự kiện onClick gọi setEditModalConfig để bật Modal lên */}
+          <Button 
+            size="small" 
+            icon={<EditOutlined />} 
+            disabled={record.trang_thai !== 'moi_tao'}
+            onClick={() => setEditModalConfig({ isOpen: true, visitData: record })}
+          >
+            Sửa
+          </Button>
           <Popconfirm title="Chắc chắn hủy lượt khám này?" onConfirm={() => cancelVisit(record.luot_kham_id)}>
             <Button size="small" danger icon={<DeleteOutlined />} disabled={record.trang_thai !== 'moi_tao'}>Hủy</Button>
           </Popconfirm>
@@ -40,7 +53,6 @@ const DailyQueueTab = () => {
     },
   ];
 
-  // Đẩy các ca 'hoan_tat' và 'da_huy' xuống cuối danh sách
   const sortedQueue = [...queueList].sort((a, b) => {
     const isADone = a.trang_thai === 'hoan_tat' || a.trang_thai === 'da_huy';
     const isBDone = b.trang_thai === 'hoan_tat' || b.trang_thai === 'da_huy';
@@ -50,13 +62,22 @@ const DailyQueueTab = () => {
   return (
     <div>
       <Title level={3} style={{ marginBottom: 20 }}>Hàng đợi hôm nay</Title>
+      
       <Table 
         columns={columns} 
         dataSource={sortedQueue} 
         rowKey="luot_kham_id"
         rowClassName={(record) => (record.trang_thai === 'hoan_tat' ? 'row-completed' : '')}
       />
-      {/* CSS làm mờ dòng hoàn tất: Thêm vào file index.css của bạn: .row-completed { opacity: 0.6; background-color: #f5f5f5; } */}
+      
+      {/* 3. Phải gọi Component Modal ra ở đây thì khi state isOpen = true nó mới hiển thị */}
+      <CreateVisitModal
+        isOpen={editModalConfig.isOpen}
+        patient={editModalConfig.visitData?.benh_nhan} // Trích xuất thông tin BN từ Lượt khám
+        mode="edit"                                    // Báo cho Modal biết đây là chế độ Sửa
+        initialData={editModalConfig.visitData}        // Đổ dữ liệu cũ vào Form
+        onClose={() => setEditModalConfig({ isOpen: false, visitData: null })}
+      />
     </div>
   );
 };

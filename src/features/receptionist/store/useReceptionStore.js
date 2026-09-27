@@ -55,7 +55,10 @@ fetchPatients: async () => {
       console.error("Lỗi lấy danh sách hàng đợi", error);
     }
   },
-
+updateVisit: async (visitId, visitData) => {
+  await receptionistService.updateVisitDetails(visitId, visitData);
+  get().fetchDailyQueue(); // Refresh bảng hàng đợi ngay lập tức
+},
   cancelVisit: async (visitId) => {
     await receptionistService.updateVisitStatus(visitId, 'da_huy');
     get().fetchDailyQueue(); 
